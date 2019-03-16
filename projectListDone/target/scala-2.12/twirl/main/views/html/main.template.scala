@@ -37,12 +37,13 @@ Seq[Any](format.raw/*1.58*/("""
 <html lang="en">
 
 <head>
+        <link rel="icon" type="image/png" href=""""),_display_(/*8.50*/routes/*8.56*/.Assets.versioned("images/favicon.png")),format.raw/*8.95*/("""">
     <meta charset="utf-8">
-    <title>EMS - """),_display_(/*9.19*/title),format.raw/*9.24*/("""</title>
+    <title>Fishbone - """),_display_(/*10.24*/title),format.raw/*10.29*/("""</title>
     <!-- Bootstrap Core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet" />
     <!-- Custom CSS -->
-    <link href=""""),_display_(/*13.18*/routes/*13.24*/.Assets.versioned("stylesheets/main.css")),format.raw/*13.65*/("""" rel="stylesheet" />
+    <link href=""""),_display_(/*14.18*/routes/*14.24*/.Assets.versioned("stylesheets/main.css")),format.raw/*14.65*/("""" rel="stylesheet" />
 </head>
 
 <body>
@@ -50,31 +51,31 @@ Seq[Any](format.raw/*1.58*/("""
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">EMS</a>
+                <a class="navbar-brand" href="/">Fishbone</a>
             </div>
 
             <ul class="nav navbar-nav">
 
-                <li """),_display_(/*26.22*/if(title=="Projects" )/*26.44*/{_display_(Seq[Any](format.raw/*26.45*/("""class="active"""")))}),format.raw/*26.60*/(""">
-                    <a href="#">Projects</a>
+                <li """),_display_(/*27.22*/if(title=="Projects" )/*27.44*/{_display_(Seq[Any](format.raw/*27.45*/("""class="active"""")))}),format.raw/*27.60*/(""">
+                    <a href="/">Projects</a>
                 </li>
 
-                <li """),_display_(/*30.22*/if(title=="Profile" )/*30.43*/{_display_(Seq[Any](format.raw/*30.44*/("""class="active"""")))}),format.raw/*30.59*/(""">
+                <li """),_display_(/*31.22*/if(title=="Profile" )/*31.43*/{_display_(Seq[Any](format.raw/*31.44*/("""class="active"""")))}),format.raw/*31.59*/(""">
                     <a href="#">My Profile</a>
                 </li>
 
-                <li """),_display_(/*34.22*/if(title=="Admin" )/*34.41*/{_display_(Seq[Any](format.raw/*34.42*/("""class="active"""")))}),format.raw/*34.57*/(""">
+                <li """),_display_(/*35.22*/if(title=="Admin" )/*35.41*/{_display_(Seq[Any](format.raw/*35.42*/("""class="active"""")))}),format.raw/*35.57*/(""">
                     <a href="#">Admin</a>
                 </li>
 
-                <li """),_display_(/*38.22*/if(title=="Login")/*38.40*/{_display_(Seq[Any](format.raw/*38.41*/("""class="active"""")))}),format.raw/*38.56*/(""">
-                    """),_display_(/*39.22*/if(user != null)/*39.38*/ {_display_(Seq[Any](format.raw/*39.40*/("""
-                        """),format.raw/*40.25*/("""<a href=""""),_display_(/*40.35*/routes/*40.41*/.LoginController.logout()),format.raw/*40.66*/("""">Logout """),_display_(/*40.76*/user/*40.80*/.getName()),format.raw/*40.90*/("""</a>
-                    """)))}/*41.23*/else/*41.28*/{_display_(Seq[Any](format.raw/*41.29*/("""
-                        """),format.raw/*42.25*/("""<a href=""""),_display_(/*42.35*/routes/*42.41*/.LoginController.login()),format.raw/*42.65*/("""">Login</a>
-                    """)))}),format.raw/*43.22*/("""
+                <li """),_display_(/*39.22*/if(title=="Login")/*39.40*/{_display_(Seq[Any](format.raw/*39.41*/("""class="active"""")))}),format.raw/*39.56*/(""">
+                    """),_display_(/*40.22*/if(user != null)/*40.38*/ {_display_(Seq[Any](format.raw/*40.40*/("""
+                        """),format.raw/*41.25*/("""<a href=""""),_display_(/*41.35*/routes/*41.41*/.LoginController.logout()),format.raw/*41.66*/("""">Logout """),_display_(/*41.76*/user/*41.80*/.getName()),format.raw/*41.90*/("""</a>
+                    """)))}/*42.23*/else/*42.28*/{_display_(Seq[Any](format.raw/*42.29*/("""
+                        """),format.raw/*43.25*/("""<a href=""""),_display_(/*43.35*/routes/*43.41*/.LoginController.login()),format.raw/*43.65*/("""">Login</a>
+                    """)))}),format.raw/*44.22*/("""
 
-                """),format.raw/*45.17*/("""</li>
+                """),format.raw/*46.17*/("""</li>
             </ul>
 
         </div>
@@ -84,8 +85,8 @@ Seq[Any](format.raw/*1.58*/("""
     <container>
         <row>
             <div class="col-md-12">
-                """),_display_(/*55.18*/content),format.raw/*55.25*/("""
-            """),format.raw/*56.13*/("""</div>
+                """),_display_(/*56.18*/content),format.raw/*56.25*/("""
+            """),format.raw/*57.13*/("""</div>
         </row>
     </container>
 <br>
@@ -99,7 +100,7 @@ Seq[Any](format.raw/*1.58*/("""
         </row>
     </footer>
     </container>
-    <script src=""""),_display_(/*70.19*/routes/*70.25*/.Assets.versioned("javascripts/main.js")),format.raw/*70.65*/(""""></script>
+    <script src=""""),_display_(/*71.19*/routes/*71.25*/.Assets.versioned("javascripts/main.js")),format.raw/*71.65*/(""""></script>
 </body>
 
 </html>
@@ -119,11 +120,11 @@ Seq[Any](format.raw/*1.58*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Mar 15 16:40:58 GMT 2019
-                  SOURCE: /home/wdd/CRUDComplete/app/views/main.scala.html
-                  HASH: 63200cf0598520ab07557180e78aed6ae6e8574f
-                  MATRIX: 970->1|1121->57|1149->59|1262->146|1287->151|1499->336|1514->342|1576->383|1899->679|1930->701|1969->702|2015->717|2133->808|2163->829|2202->830|2248->845|2368->938|2396->957|2435->958|2481->973|2596->1061|2623->1079|2662->1080|2708->1095|2758->1118|2783->1134|2823->1136|2876->1161|2913->1171|2928->1177|2974->1202|3011->1212|3024->1216|3055->1226|3100->1253|3113->1258|3152->1259|3205->1284|3242->1294|3257->1300|3302->1324|3366->1357|3412->1375|3575->1511|3603->1518|3644->1531|3944->1804|3959->1810|4020->1850
-                  LINES: 28->1|33->1|35->3|41->9|41->9|45->13|45->13|45->13|58->26|58->26|58->26|58->26|62->30|62->30|62->30|62->30|66->34|66->34|66->34|66->34|70->38|70->38|70->38|70->38|71->39|71->39|71->39|72->40|72->40|72->40|72->40|72->40|72->40|72->40|73->41|73->41|73->41|74->42|74->42|74->42|74->42|75->43|77->45|87->55|87->55|88->56|102->70|102->70|102->70
+                  DATE: Sat Mar 16 14:40:05 GMT 2019
+                  SOURCE: /home/wdd/BASE_CODE/projectListDone/app/views/main.scala.html
+                  HASH: 84ab559d74751a6b7541608600410aca1c7df5d8
+                  MATRIX: 970->1|1121->57|1149->59|1266->150|1280->156|1339->195|1419->248|1445->253|1657->438|1672->444|1734->485|2062->786|2093->808|2132->809|2178->824|2296->915|2326->936|2365->937|2411->952|2531->1045|2559->1064|2598->1065|2644->1080|2759->1168|2786->1186|2825->1187|2871->1202|2921->1225|2946->1241|2986->1243|3039->1268|3076->1278|3091->1284|3137->1309|3174->1319|3187->1323|3218->1333|3263->1360|3276->1365|3315->1366|3368->1391|3405->1401|3420->1407|3465->1431|3529->1464|3575->1482|3738->1618|3766->1625|3807->1638|4107->1911|4122->1917|4183->1957
+                  LINES: 28->1|33->1|35->3|40->8|40->8|40->8|42->10|42->10|46->14|46->14|46->14|59->27|59->27|59->27|59->27|63->31|63->31|63->31|63->31|67->35|67->35|67->35|67->35|71->39|71->39|71->39|71->39|72->40|72->40|72->40|73->41|73->41|73->41|73->41|73->41|73->41|73->41|74->42|74->42|74->42|75->43|75->43|75->43|75->43|76->44|78->46|88->56|88->56|89->57|103->71|103->71|103->71
                   -- GENERATED --
               */
           
