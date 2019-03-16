@@ -61,8 +61,15 @@ public class HomeController extends Controller {
         List<Employee> employeeList = Employee.findAll();
         return ok(employee.render(employeeList,User.getUserById(session().get("email")), e));
     }
+
+    public Result profile() {
+        List<Employee> employeeList = Employee.findAll();
+        return ok(employee.render(employeeList,User.getUserById(session().get("email")), e));
+    }
+
     @Security.Authenticated(Secured.class)
-    @With(AuthAdmin.class)
+    @With(AuthManager.class)
+    @Transactional
     public Result addProjects() {
         Form<Projects> projectsForm = formFactory.form(Projects.class);
         return ok(addProjects.render(projectsForm, User.getUserById(session().get("email"))));
@@ -89,6 +96,9 @@ public class HomeController extends Controller {
 
         return redirect(controllers.routes.HomeController.index(0));
     }
+
+
+
     @Security.Authenticated(Secured.class)
     @With(AuthAdmin.class)
     @Transactional
@@ -125,6 +135,9 @@ public class HomeController extends Controller {
             return redirect(controllers.routes.HomeController.employee());
         }
     }
+
+
+
 
     public String saveFile(Long id, FilePart<File> uploaded){
         if(uploaded != null){
@@ -174,7 +187,7 @@ public class HomeController extends Controller {
     }
 
     @Security.Authenticated(Secured.class)
-    @With(AuthAdmin.class)
+    @With(AuthManager.class)
     @Transactional
     public Result deleteProjects(Long id) {
         Projects.find.ref(id).delete();
@@ -183,6 +196,12 @@ public class HomeController extends Controller {
         
         return redirect(routes.HomeController.index(0));
     }
+
+
+
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
+    @Transactional
     public Result deleteEmployee(Long id) {
         Employee.find.ref(id).delete();
         flash("success", "Employee has been deleted");
@@ -190,8 +209,10 @@ public class HomeController extends Controller {
         return redirect(routes.HomeController.index(0));
     }
 
+
+
     @Security.Authenticated(Secured.class)
-    @With(AuthAdmin.class)
+    @With(AuthManager.class)
     @Transactional
     public Result updateProjects(Long id) {
         Projects p;
@@ -206,6 +227,11 @@ public class HomeController extends Controller {
         }
         return ok(addProjects.render(projectsForm,User.getUserById(session().get("email"))));
     }
+
+
+
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
     @Transactional
     public Result updateEmployee(Long id) {        
         Employee e;

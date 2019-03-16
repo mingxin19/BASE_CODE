@@ -4,6 +4,7 @@
 
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index(cat:Long?=0L)
+GET     /profile                    controllers.HomeController.profile
 GET     /employee                   controllers.HomeController.employee
 GET     /addProjects                controllers.HomeController.addProjects
 POST    /addProjectsSubmit          controllers.HomeController.addProjectsSubmit

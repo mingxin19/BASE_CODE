@@ -19,21 +19,21 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">Fishbone</a>
+                <a class="navbar-brand" href="@routes.HomeController.index()">Fishbone</a>
             </div>
 
             <ul class="nav navbar-nav">
 
                 <li @if(title=="Projects" ){class="active"}>
-                    <a href="/">Projects</a>
+                    <a href="@routes.HomeController.index()">Projects</a>
                 </li>
 
                 <li @if(title=="Profile" ){class="active"}>
-                    <a href="#">My Profile</a>
+                    <a href="@routes.HomeController.profile()">My Profile</a>
                 </li>
 
                 <li @if(title=="Employee" ){class="active"}>
-                    <a href="/employee">Admin</a>
+                    <a href="@routes.HomeController.employee()">Admin</a>
                 </li>
 
                 <li @if(title=="Login"){class="active"}>

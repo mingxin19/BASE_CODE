@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/BASE_CODE/projectListDone/conf/routes
-// @DATE:Sat Mar 16 17:16:24 GMT 2019
+// @DATE:Sat Mar 16 18:14:14 GMT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -20,7 +20,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:8
+    // @LINE:9
     def addProjects: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addProjects",
       """
@@ -30,7 +30,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:15
+    // @LINE:16
     def updateEmployee: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.updateEmployee",
       """
@@ -40,7 +40,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:7
+    // @LINE:8
     def employee: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.employee",
       """
@@ -50,7 +50,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:11
+    // @LINE:12
     def addEmployeeSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addEmployeeSubmit",
       """
@@ -60,7 +60,17 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:9
+    // @LINE:7
+    def profile: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.profile",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "profile"})
+        }
+      """
+    )
+  
+    // @LINE:10
     def addProjectsSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addProjectsSubmit",
       """
@@ -70,7 +80,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:13
+    // @LINE:14
     def deleteEmployee: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.deleteEmployee",
       """
@@ -90,7 +100,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:14
+    // @LINE:15
     def updateProjects: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.updateProjects",
       """
@@ -100,7 +110,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:12
+    // @LINE:13
     def deleteProjects: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.deleteProjects",
       """
@@ -110,7 +120,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:10
+    // @LINE:11
     def addEmployee: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addEmployee",
       """
@@ -122,7 +132,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:17
+  // @LINE:18
   class ReverseLoginController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -130,7 +140,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:18
+    // @LINE:19
     def loginSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.LoginController.loginSubmit",
       """
@@ -140,7 +150,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:19
+    // @LINE:20
     def logout: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.LoginController.logout",
       """
@@ -150,7 +160,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:17
+    // @LINE:18
     def login: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.LoginController.login",
       """
@@ -162,7 +172,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:22
+  // @LINE:23
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -170,7 +180,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:22
+    // @LINE:23
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
