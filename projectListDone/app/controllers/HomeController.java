@@ -18,6 +18,11 @@ import play.mvc.Http.*;
 import play.mvc.Http.MultipartFormData.FilePart;
 import java.io.File;
 
+import java.io.IOException;
+import java.awt.image.*;
+import javax.imageio.*;
+import org.imgscalr.*;
+
 /**
  * This controller contains an action to handle HTTP requests
  * to the application's home page.
@@ -141,9 +146,23 @@ public class HomeController extends Controller {
 
                 File newFile = new File("public/images/employeeImages/", id + "."+extension);
                 if(file.renameTo(newFile)){
-                    return "/ file uploaded";
+
+                    try{
+                        BufferedImage img = ImageIO.read(newFile);
+                        BufferedImage scaledImg = Scalr.resize(img, 90);
+
+                        if(ImageIO.write(scaledImg, extension, new File("public/images/employeeImages/", id + "thumb.jpg"))){
+                            return "/ file uploaded and thumbnail created.";
+                        }else{
+                            return "/ file uploaded but thumbnail creation failed.";  
+                        }
+
+                    }catch(IOException e){
+                        return "/ file uploaded but thumbnail creation failed.";
+                    }
+                    
                 }else{
-                    return "/ file upload failed";
+                    return "/ file upload failed.";
                 }
             }
         }
