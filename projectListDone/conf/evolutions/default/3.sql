@@ -1,6 +1,6 @@
 # --- Sample dataset
 
 # --- !Ups
-insert into employee (id,name, email) values (1, 'peter',  'petermarting@gmail.com');
-insert into employee (id,name, email) values (2, 'Jimmy',  'jimhen@gmail.com');
-insert into employee (id,name, email) values (3, 'Barry', 'breilly@gmail.com');
+insert into employee (id,name, email, password) values (1, 'peter',  'peter@gmail.com', 'peter');
+insert into employee (id,name, email, password) values (2, 'Jimmy',  'jimmy@gmail.com', 'jimmy');
+insert into employee (id,name, email, password) values (3, 'Barry', 'barry@gmail.com', 'barry');

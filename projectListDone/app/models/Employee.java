@@ -15,9 +15,11 @@ public class Employee extends Model{
     @Constraints.Required
     private String name;
 
-
     @Constraints.Required
     private String email;
+
+    @Constraints.Required
+    private String password;
 
     public Employee() {
     }
@@ -54,9 +56,16 @@ public class Employee extends Model{
     public void setName(String name) {
         this.name = name;
     }
-    
 
     public void setEmail(String e) {
         this.email = e;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String p) {
+        this.password = p;
     }
 }
