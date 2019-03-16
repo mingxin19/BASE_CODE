@@ -32,9 +32,12 @@
                     <a href="@routes.HomeController.profile()">My Profile</a>
                 </li>
 
-                <li @if(title=="Employee" ){class="active"}>
-                    <a href="@routes.HomeController.employee()">Admin</a>
-                </li>
+                @if((user != null) && ("admin".equals(user.getRole()))){
+                    <li @if(title=="Employee" ){class="active"}>
+                            <a href="@routes.HomeController.employee()">Admin</a>
+                    </li>
+                }
+                
 
                 <li @if(title=="Login"){class="active"}>
                     @if(user != null) {

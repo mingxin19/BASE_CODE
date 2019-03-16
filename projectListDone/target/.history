@@ -191,3 +191,6 @@ run
 clean
 compile
 exit
+clean
+compile
+run
