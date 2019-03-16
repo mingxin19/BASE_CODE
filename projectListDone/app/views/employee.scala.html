@@ -1,4 +1,4 @@
-@(employee: List[models.Employee], user: models.users.User)
+@(employee: List[models.Employee], user: models.users.User, env: play.api.Environment)
 
 @main("Employee",user) {
 
@@ -14,6 +14,7 @@
 
   <thead>
     <tr>
+      <th>Image</th>
       <th>ID</th>
       <th>Name</th>
       <th>Email</th>
@@ -25,6 +26,11 @@
   <tbody>
     @for(e<-employee) {
       <tr>
+        @if(env.resource("public/images/employeeImages/" + e.getId + "thumb.jpg").isDefined){
+          <td><img src="/assets/images/employeeImages/@(e.getId +"thumb.jpg")"/></td>
+        }else{
+          <td><img src="/assets/images/employeeImages/noImage.png"></td>
+        }
         <td class="numeric">@e.getId</td>
         <td>@e.getName</td>
         <td>@e.getEmail</td>

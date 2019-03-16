@@ -36,9 +36,12 @@ public class HomeController extends Controller {
      * <code>GET</code> request with a path of <code>/</code>.
      */
     private FormFactory formFactory;
+
+    private Environment e;
     
         @Inject
-        public HomeController(FormFactory f) {
+        public HomeController(FormFactory f, Environment env) {
+            this.e = env;
             this.formFactory = f;
         }
     
@@ -56,7 +59,7 @@ public class HomeController extends Controller {
 
     public Result employee() {
         List<Employee> employeeList = Employee.findAll();
-        return ok(employee.render(employeeList,User.getUserById(session().get("email"))));
+        return ok(employee.render(employeeList,User.getUserById(session().get("email")), e));
     }
     @Security.Authenticated(Secured.class)
     @With(AuthAdmin.class)
