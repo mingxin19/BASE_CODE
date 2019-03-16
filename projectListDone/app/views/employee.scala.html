@@ -2,7 +2,7 @@
 
 @main("Employee",user) {
 
-<p class="lead">Employee</p>
+<p class="lead">Employee List</p>
 
 @if(flash.containsKey("success")) {
   <div class="alert alert-success">
@@ -17,7 +17,8 @@
       <th>ID</th>
       <th>Name</th>
       <th>Email</th>
-      <th colspan="2"></th>      
+      <th>Update</th>
+      <th>Delete</th>     
     </tr>
   </thead>
 

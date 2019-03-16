@@ -35,20 +35,20 @@ Seq[Any](format.raw/*1.64*/("""
 """),format.raw/*3.1*/("""
 """),_display_(/*4.2*/main("Add Projects",user)/*4.27*/ {_display_(Seq[Any](format.raw/*4.29*/("""
     """),format.raw/*5.5*/("""<p class="lead">Add a new project</p>
-    """),_display_(/*6.6*/form(action=routes.HomeController.addProjectsSubmit(), 'class -> "form-horizontal", 'role -> "form")/*6.106*/ {_display_(Seq[Any](format.raw/*6.108*/("""
-        """),format.raw/*7.37*/("""
-        """),_display_(/*8.10*/CSRF/*8.14*/.formField),format.raw/*8.24*/("""
+    """),_display_(/*6.6*/form(action=routes.HomeController.addProjectsSubmit(), 'class -> "form-horizontal", 
+        'role -> "form")/*7.25*/ {_display_(Seq[Any](format.raw/*7.27*/("""
+        """),format.raw/*8.37*/("""
+        """),_display_(/*9.10*/CSRF/*9.14*/.formField),format.raw/*9.24*/("""
 
-        """),_display_(/*10.10*/inputText(projectsForm("name"), '_label -> "Name", 'class -> "form-control")),format.raw/*10.86*/("""
-        """),_display_(/*11.10*/select(
+        """),_display_(/*11.10*/inputText(projectsForm("name"), '_label -> "Name", 'class -> "form-control")),format.raw/*11.86*/("""
+        """),_display_(/*12.10*/select(
             projectsForm("department.id"),
             options(Department.options),
             '_label -> "Department", '_default -> "-- Choose a department --",
             '_showConstraints -> false, 'class -> "form-control"
-        )),format.raw/*16.10*/("""
-        """),_display_(/*17.10*/inputText(projectsForm("description"), '_label -> "Description", 'class -> "form-control")),format.raw/*17.100*/("""
-        """),_display_(/*18.10*/inputText(projectsForm("startDate"), '_label -> "Start Date", 'class -> "form-control")),format.raw/*18.97*/("""
-        
+        )),format.raw/*17.10*/("""
+        """),_display_(/*18.10*/inputText(projectsForm("description"), '_label -> "Description", 'class -> "form-control")),format.raw/*18.100*/("""
+        """),_display_(/*19.10*/inputText(projectsForm("startDate"), '_label -> "Start Date", 'class -> "form-control")),format.raw/*19.97*/("""
 
         """),_display_(/*21.10*/inputText(projectsForm("id"), '_label -> "", 'hidden -> "hidden")),format.raw/*21.75*/("""
 
@@ -75,11 +75,11 @@ Seq[Any](format.raw/*1.64*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Mar 16 14:36:19 GMT 2019
+                  DATE: Sat Mar 16 16:19:13 GMT 2019
                   SOURCE: /home/wdd/BASE_CODE/projectListDone/app/views/addProjects.scala.html
-                  HASH: c16dfb7e383e4de106bd3dd7caed16ac1b627e8c
-                  MATRIX: 987->1|1122->65|1167->63|1194->81|1221->83|1254->108|1293->110|1324->115|1392->158|1501->258|1541->260|1577->297|1613->307|1625->311|1655->321|1693->332|1790->408|1827->418|2093->663|2130->673|2242->763|2279->773|2387->860|2434->880|2520->945|2557->955|2714->1085|2729->1091|2774->1115|2922->1233
-                  LINES: 28->1|31->2|34->1|35->3|36->4|36->4|36->4|37->5|38->6|38->6|38->6|39->7|40->8|40->8|40->8|42->10|42->10|43->11|48->16|49->17|49->17|50->18|50->18|53->21|53->21|55->23|57->25|57->25|57->25|61->29
+                  HASH: e42ebb70156996282badd8b283ce518aba5367d1
+                  MATRIX: 987->1|1122->65|1167->63|1194->81|1221->83|1254->108|1293->110|1324->115|1392->158|1509->267|1548->269|1584->306|1620->316|1632->320|1662->330|1700->341|1797->417|1834->427|2100->672|2137->682|2249->772|2286->782|2394->869|2432->880|2518->945|2555->955|2712->1085|2727->1091|2772->1115|2920->1233
+                  LINES: 28->1|31->2|34->1|35->3|36->4|36->4|36->4|37->5|38->6|39->7|39->7|40->8|41->9|41->9|41->9|43->11|43->11|44->12|49->17|50->18|50->18|51->19|51->19|53->21|53->21|55->23|57->25|57->25|57->25|61->29
                   -- GENERATED --
               */
           

@@ -34,7 +34,7 @@ Seq[Any](format.raw/*1.60*/("""
 
 """),_display_(/*3.2*/main("Employee",user)/*3.23*/ {_display_(Seq[Any](format.raw/*3.25*/("""
 
-"""),format.raw/*5.1*/("""<p class="lead">Employee</p>
+"""),format.raw/*5.1*/("""<p class="lead">Employee List</p>
 
 """),_display_(/*7.2*/if(flash.containsKey("success"))/*7.34*/ {_display_(Seq[Any](format.raw/*7.36*/("""
   """),format.raw/*8.3*/("""<div class="alert alert-success">
@@ -49,33 +49,34 @@ Seq[Any](format.raw/*1.60*/("""
       <th>ID</th>
       <th>Name</th>
       <th>Email</th>
-      <th colspan="2"></th>      
+      <th>Update</th>
+      <th>Delete</th>     
     </tr>
   </thead>
 
   <tbody>
-    """),_display_(/*25.6*/for(e<-employee) yield /*25.22*/ {_display_(Seq[Any](format.raw/*25.24*/("""
-      """),format.raw/*26.7*/("""<tr>
-        <td class="numeric">"""),_display_(/*27.30*/e/*27.31*/.getId),format.raw/*27.37*/("""</td>
-        <td>"""),_display_(/*28.14*/e/*28.15*/.getName),format.raw/*28.23*/("""</td>
-        <td>"""),_display_(/*29.14*/e/*29.15*/.getEmail),format.raw/*29.24*/("""</td>
+    """),_display_(/*26.6*/for(e<-employee) yield /*26.22*/ {_display_(Seq[Any](format.raw/*26.24*/("""
+      """),format.raw/*27.7*/("""<tr>
+        <td class="numeric">"""),_display_(/*28.30*/e/*28.31*/.getId),format.raw/*28.37*/("""</td>
+        <td>"""),_display_(/*29.14*/e/*29.15*/.getName),format.raw/*29.23*/("""</td>
+        <td>"""),_display_(/*30.14*/e/*30.15*/.getEmail),format.raw/*30.24*/("""</td>
         <td>
-          <a href=""""),_display_(/*31.21*/routes/*31.27*/.HomeController.updateEmployee(e.getId)),format.raw/*31.66*/("""" class="button-xs btn-danger">
+          <a href=""""),_display_(/*32.21*/routes/*32.27*/.HomeController.updateEmployee(e.getId)),format.raw/*32.66*/("""" class="button-xs btn-danger">
             <span class="glyphicon glyphicon-pencil"></span>
           </a>
         </td>  
         <td>
-          <a href=""""),_display_(/*36.21*/routes/*36.27*/.HomeController.deleteEmployee(e.getId)),format.raw/*36.66*/("""" class="button-xs btn-danger"  onclick="return confirmDel()">
+          <a href=""""),_display_(/*37.21*/routes/*37.27*/.HomeController.deleteEmployee(e.getId)),format.raw/*37.66*/("""" class="button-xs btn-danger"  onclick="return confirmDel()">
             <span class="glyphicon glyphicon-trash"></span>
           </a>
         </td>
       </tr>
-    """)))}),format.raw/*41.6*/("""
-  """),format.raw/*42.3*/("""</tbody>
+    """)))}),format.raw/*42.6*/("""
+  """),format.raw/*43.3*/("""</tbody>
 
 </table>
 <p>
-  <a href=""""),_display_(/*46.13*/routes/*46.19*/.HomeController.addEmployee()),format.raw/*46.48*/("""">
+  <a href=""""),_display_(/*47.13*/routes/*47.19*/.HomeController.addEmployee()),format.raw/*47.48*/("""">
     <button class="btn btn-primary">Add an Employee</button>
   </a>
 </p>
@@ -96,11 +97,11 @@ Seq[Any](format.raw/*1.60*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Mar 16 14:59:05 GMT 2019
+                  DATE: Sat Mar 16 16:19:13 GMT 2019
                   SOURCE: /home/wdd/BASE_CODE/projectListDone/app/views/employee.scala.html
-                  HASH: aa394683188b71a1a218df5e5d87aa277bea7361
-                  MATRIX: 984->1|1137->59|1165->62|1194->83|1233->85|1261->87|1317->118|1357->150|1396->152|1425->155|1489->194|1502->199|1537->214|1567->217|1605->225|1634->227|1875->442|1907->458|1947->460|1981->467|2042->501|2052->502|2079->508|2125->527|2135->528|2164->536|2210->555|2220->556|2250->565|2316->604|2331->610|2391->649|2575->806|2590->812|2650->851|2849->1020|2879->1023|2941->1058|2956->1064|3006->1093
-                  LINES: 28->1|33->1|35->3|35->3|35->3|37->5|39->7|39->7|39->7|40->8|41->9|41->9|41->9|42->10|43->11|45->13|57->25|57->25|57->25|58->26|59->27|59->27|59->27|60->28|60->28|60->28|61->29|61->29|61->29|63->31|63->31|63->31|68->36|68->36|68->36|73->41|74->42|78->46|78->46|78->46
+                  HASH: 14008774e270495c363fc23289ecde61a7cd85c5
+                  MATRIX: 984->1|1137->59|1165->62|1194->83|1233->85|1261->87|1322->123|1362->155|1401->157|1430->160|1494->199|1507->204|1542->219|1572->222|1610->230|1639->232|1895->462|1927->478|1967->480|2001->487|2062->521|2072->522|2099->528|2145->547|2155->548|2184->556|2230->575|2240->576|2270->585|2336->624|2351->630|2411->669|2595->826|2610->832|2670->871|2869->1040|2899->1043|2961->1078|2976->1084|3026->1113
+                  LINES: 28->1|33->1|35->3|35->3|35->3|37->5|39->7|39->7|39->7|40->8|41->9|41->9|41->9|42->10|43->11|45->13|58->26|58->26|58->26|59->27|60->28|60->28|60->28|61->29|61->29|61->29|62->30|62->30|62->30|64->32|64->32|64->32|69->37|69->37|69->37|74->42|75->43|79->47|79->47|79->47
                   -- GENERATED --
               */
           

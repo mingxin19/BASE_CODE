@@ -3,7 +3,8 @@
 
 @main("Add Projects",user) {
     <p class="lead">Add a new project</p>
-    @form(action=routes.HomeController.addProjectsSubmit(), 'class -> "form-horizontal", 'role -> "form") {
+    @form(action=routes.HomeController.addProjectsSubmit(), 'class -> "form-horizontal", 
+        'role -> "form") {
         @* CSRF attack prevention *@
         @CSRF.formField
 
@@ -16,7 +17,6 @@
         )
         @inputText(projectsForm("description"), '_label -> "Description", 'class -> "form-control")
         @inputText(projectsForm("startDate"), '_label -> "Start Date", 'class -> "form-control")
-        
 
         @inputText(projectsForm("id"), '_label -> "", 'hidden -> "hidden")
 
