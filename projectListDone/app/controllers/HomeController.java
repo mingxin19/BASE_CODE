@@ -57,14 +57,24 @@ public class HomeController extends Controller {
             return ok(index.render(projectsList, departmentList, User.getUserById(session().get("email"))));
         }
 
+
+
+
+    //WEBPAGE
+
     public Result employee() {
-        List<Employee> employeeList = Employee.findAll();
-        return ok(employee.render(employeeList,User.getUserById(session().get("email")), e));
+        List<Employee> userList = Employee.findAll();
+        return ok(employee.render(userList,User.getUserById(session().get("email")), e));
+    }
+
+    public Result manager() {
+        List<Manager> userList = Manager.findAll();
+        return ok(manager.render(userList,User.getUserById(session().get("email")), e));
     }
 
     public Result admin() {
-        List<Admin> adminList = Admin.findAll();
-        return ok(admin.render(adminList,User.getUserById(session().get("email")), e));
+        List<Admin> userList = Admin.findAll();
+        return ok(admin.render(userList,User.getUserById(session().get("email")), e));
     }
 
     public Result profile() {
@@ -196,6 +206,49 @@ public class HomeController extends Controller {
 
 
 
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
+    @Transactional
+    public Result addManager() {
+        Form<Manager> newUserForm = formFactory.form(Manager.class);
+        return ok(addManager.render(newUserForm,User.getUserById(session().get("email"))));
+    }
+
+    public Result addManagerSubmit() {
+        Form<Manager> newUserForm = formFactory.form(Manager.class).bindFromRequest();
+        
+
+        if (newUserForm.hasErrors()) {
+            return badRequest(addManager.render(newUserForm,User.getUserById(session().get("email"))));
+            
+        } 
+        else {
+            Manager user = newUserForm.get();
+            System.out.println("Name: "+newUserForm.field("name").getValue().get());
+            System.out.println("Role: "+newUserForm.field("role").getValue().get());
+            System.out.println("Email: "+newUserForm.field("email").getValue().get());
+            System.out.println("Password: "+newUserForm.field("password").getValue().get());
+
+            if (User.getUserById(user.getEmail()) == null) {
+                user.save();
+                flash("success", "User " + user.getName() + " was added");                
+            }else {
+                user.update();
+                flash("success", "User " + user.getName() + " was updated");                
+            }
+
+            MultipartFormData<File> data = request().body().asMultipartFormData();
+            
+            FilePart<File> image = data.getFile("upload");
+
+            String saveImageMessage = saveFile(user.getEmail(), image);
+            flash("success", "User "+user.getName()+" was added/updated "+saveImageMessage);
+            return redirect(controllers.routes.HomeController.manager());
+        }
+    }
+
+
+
 
     //IMAGE
 
@@ -290,6 +343,19 @@ public class HomeController extends Controller {
 
 
 
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
+    @Transactional
+    public Result deleteManager(String email) {
+        Manager u = (Manager)User.getUserById(email);
+        u.delete();
+        flash("success", "User has been deleted");
+
+        return redirect(routes.HomeController.index(0));
+    }
+
+
+
 
     //UPDATE
 
@@ -350,6 +416,27 @@ public class HomeController extends Controller {
         }
 
         return ok(addAdmin.render(userForm,User.getUserById(session().get("email"))));
+    }
+
+
+
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
+    @Transactional
+    public Result updateManager(String email) {        
+        Manager u;
+        Form<Manager> userForm;
+
+        try {
+            u = (Manager)User.getUserById(email);
+            u.update();
+            userForm = formFactory.form(Manager.class).fill(u);
+        }
+        catch (Exception ex) {
+            return badRequest("error");
+        }
+
+        return ok(addManager.render(userForm,User.getUserById(session().get("email"))));
     }
 
 

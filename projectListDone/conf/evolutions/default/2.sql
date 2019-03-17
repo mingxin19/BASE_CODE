@@ -32,12 +32,12 @@ insert into projects (id,department_id,name,description,start_date) values ( 6,3
 
 insert into projects (id,department_id,name,description,start_date) values ( 7,5,'Lee Davis','Add two small features in Hunter Warriors', '2019-01-23' );
 
-insert into projects (id,department_id,name,description,start_date) values ( 8,4,'Byran Wilson','Test the Rating', '2018-04-06' );
+insert into projects (id,department_id,name,description,start_date) values ( 8,4,'Jimmy Wilson','Test the Rating', '2018-04-06' );
 
 insert into projects (id,department_id,name,description,start_date) values ( 9,1,'Sarah Allen','Design a new outfit for character 10 in "Battle" game', '2018-06-24' );
 
 insert into projects (id,department_id,name,description,start_date) values ( 10,3,'Kevin Howard','New weapon', '2018-08-16' );
 
-insert into projects (id,department_id,name,description,start_date) values ( 11,3,'David Butler','New map', '2017-12-01' );
+insert into projects (id,department_id,name,description,start_date) values ( 11,3,'Barry Butler','New map', '2017-12-01' );
 
 insert into projects (id,department_id,name,description,start_date) values ( 12,3,'Leo Nelson','New spell', '2017-07-05' );

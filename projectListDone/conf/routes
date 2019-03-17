@@ -7,6 +7,7 @@ GET     /                           controllers.HomeController.index(cat:Long?=0
 GET     /profile                    controllers.HomeController.profile
 GET     /employee                   controllers.HomeController.employee
 GET     /admin                      controllers.HomeController.admin
+GET     /manager                    controllers.HomeController.manager
 
 
 GET     /addProjects                controllers.HomeController.addProjects
@@ -15,16 +16,20 @@ GET     /addEmployee                controllers.HomeController.addEmployee
 POST    /addEmployeeSubmit          controllers.HomeController.addEmployeeSubmit
 GET     /addAdmin                   controllers.HomeController.addAdmin
 POST    /addAdminSubmit             controllers.HomeController.addAdminSubmit
+GET     /addManager                 controllers.HomeController.addManager
+POST    /addManagerSubmit           controllers.HomeController.addManagerSubmit
 
 
 GET     /delProjects/:id            controllers.HomeController.deleteProjects(id: Long)
 GET     /delEmployee/:id            controllers.HomeController.deleteEmployee(id: String)
 GET     /delAdmin/:id               controllers.HomeController.deleteAdmin(id: String)
+GET     /delManager/:id             controllers.HomeController.deleteManager(id: String)
 
 
 GET     /updateProjects/:id         controllers.HomeController.updateProjects(id: Long)
 GET     /updateEmployee/:id         controllers.HomeController.updateEmployee(id: String)
 GET     /updateAdmin/:id            controllers.HomeController.updateAdmin(id: String)
+GET     /updateManager/:id          controllers.HomeController.updateManager(id: String)
 
 GET     /login                      controllers.LoginController.login
 POST    /loginSubmit                controllers.LoginController.loginSubmit
