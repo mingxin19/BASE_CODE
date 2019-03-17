@@ -8,6 +8,10 @@ import play.data.format.*;
 import play.data.validation.*;
 
 @Entity
+@Table(name="user")
+@Inheritance(strategy= InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="type")
+@DiscriminatorValue("u")
 public class User extends Model {
     @Id
     private String email;
@@ -22,6 +26,13 @@ public class User extends Model {
     private String password;
 
     public User() {
+    }
+
+    public User(String name, String role, String em, String ps) {
+        this.name = name;
+        this.role = role;
+        this.email = em;
+        this.password = ps;
     }
 
     public String getEmail() {
@@ -60,9 +71,7 @@ public class User extends Model {
 
     public static Finder<String, User> find = new Finder<String, User>(User.class);
 
-    public static List<User> findAll() {
-        return User.find.all();
-    }
+
 
     public static User authenticate(String email, String password) {
         return find.query().where().eq("email", email).eq("password", password).findUnique();

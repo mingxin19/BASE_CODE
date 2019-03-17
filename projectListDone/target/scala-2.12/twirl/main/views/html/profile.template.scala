@@ -55,10 +55,10 @@ Seq[Any](format.raw/*1.84*/("""
 
   <tbody>
       <tr>
-        """),_display_(/*26.10*/if(env.resource("public/images/employeeImages/" + user.getName + "thumb.jpg").isDefined)/*26.98*/{_display_(Seq[Any](format.raw/*26.99*/("""
-          """),format.raw/*27.11*/("""<td><img src="/assets/images/employeeImages/"""),_display_(/*27.56*/(user.getName +"thumb.jpg")),format.raw/*27.83*/(""""/></td>
+        """),_display_(/*26.10*/if(env.resource("public/images/userImages/" + user.getEmail + "thumb.jpg").isDefined)/*26.95*/{_display_(Seq[Any](format.raw/*26.96*/("""
+          """),format.raw/*27.11*/("""<td><img src="/assets/images/userImages/"""),_display_(/*27.52*/(user.getEmail +"thumb.jpg")),format.raw/*27.80*/(""""/></td>
         """)))}/*28.10*/else/*28.14*/{_display_(Seq[Any](format.raw/*28.15*/("""
-          """),format.raw/*29.11*/("""<td><img src="/assets/images/employeeImages/noImage.png"></td>
+          """),format.raw/*29.11*/("""<td><img src="/assets/images/userImages/noImage.png"></td>
         """)))}),format.raw/*30.10*/("""
         
         """),format.raw/*32.9*/("""<td>"""),_display_(/*32.14*/user/*32.18*/.getName),format.raw/*32.26*/("""</td>
@@ -91,10 +91,10 @@ Seq[Any](format.raw/*1.84*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Mar 17 13:39:45 GMT 2019
+                  DATE: Sun Mar 17 21:46:50 GMT 2019
                   SOURCE: /home/wdd/BASE_CODE/projectListDone/app/views/profile.scala.html
-                  HASH: faab1fdf54940c2a7aa0497dbe0a7d8b0054f29c
-                  MATRIX: 1000->1|1177->83|1205->86|1236->109|1275->111|1303->113|1346->130|1358->134|1386->142|1418->149|1458->181|1497->183|1526->186|1590->225|1603->230|1638->245|1668->248|1706->256|1735->258|1966->462|2063->550|2102->551|2141->562|2213->607|2261->634|2298->652|2311->656|2350->657|2389->668|2492->740|2537->758|2569->763|2582->767|2611->775|2657->794|2670->798|2700->807|2795->872
+                  HASH: 0cc089a9d73ace299f8cd5573c94eed32b4d717b
+                  MATRIX: 1000->1|1177->83|1205->86|1236->109|1275->111|1303->113|1346->130|1358->134|1386->142|1418->149|1458->181|1497->183|1526->186|1590->225|1603->230|1638->245|1668->248|1706->256|1735->258|1966->462|2060->547|2099->548|2138->559|2206->600|2255->628|2292->646|2305->650|2344->651|2383->662|2482->730|2527->748|2559->753|2572->757|2601->765|2647->784|2660->788|2690->797|2785->862
                   LINES: 28->1|33->1|35->3|35->3|35->3|37->5|37->5|37->5|37->5|39->7|39->7|39->7|40->8|41->9|41->9|41->9|42->10|43->11|45->13|58->26|58->26|58->26|59->27|59->27|59->27|60->28|60->28|60->28|61->29|62->30|64->32|64->32|64->32|64->32|65->33|65->33|65->33|75->43
                   -- GENERATED --
               */

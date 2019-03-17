@@ -62,10 +62,20 @@ public class HomeController extends Controller {
         return ok(employee.render(employeeList,User.getUserById(session().get("email")), e));
     }
 
+    public Result admin() {
+        List<Admin> adminList = Admin.findAll();
+        return ok(admin.render(adminList,User.getUserById(session().get("email")), e));
+    }
+
     public Result profile() {
         User user = User.getUserById(session().get("email"));
         return ok(profile.render(user,User.getUserById(session().get("email")), e));
     }
+
+
+
+
+    //ADD
 
     @Security.Authenticated(Secured.class)
     @With(AuthManager.class)
@@ -103,43 +113,93 @@ public class HomeController extends Controller {
     @With(AuthAdmin.class)
     @Transactional
     public Result addEmployee() {
-        Form<Employee> employeeForm = formFactory.form(Employee.class);
-        return ok(addEmployee.render(employeeForm,User.getUserById(session().get("email"))));
+        Form<Employee> newUserForm = formFactory.form(Employee.class);
+        return ok(addEmployee.render(newUserForm,User.getUserById(session().get("email"))));
     }
+    
 
     public Result addEmployeeSubmit() {
-        Form<Employee> newEmployeeForm = formFactory.form(Employee.class).bindFromRequest();
+        Form<Employee> newUserForm = formFactory.form(Employee.class).bindFromRequest();
         
 
-        if (newEmployeeForm.hasErrors()) {
-            return badRequest(addEmployee.render(newEmployeeForm,User.getUserById(session().get("email"))));
+        if (newUserForm.hasErrors()) {
+            return badRequest(addEmployee.render(newUserForm,User.getUserById(session().get("email"))));
             
         } 
         else {
-            Employee newEmployee = newEmployeeForm.get();
-            
-            if (newEmployee.getId() == null) {
-                newEmployee.save();
-                flash("success", "Employee " + newEmployee.getName() + " was added");                
+            Employee user = newUserForm.get();
+            System.out.println("Name: "+newUserForm.field("name").getValue().get());
+            System.out.println("Role: "+newUserForm.field("role").getValue().get());
+            System.out.println("Email: "+newUserForm.field("email").getValue().get());
+            System.out.println("Password: "+newUserForm.field("password").getValue().get());
+
+            if (User.getUserById(user.getEmail()) == null) {
+                user.save();
+                flash("success", "User " + user.getName() + " was added");                
             }else {
-                newEmployee.update();
-                flash("success", "Employee " + newEmployee.getName() + " was updated");                
+                user.update();
+                flash("success", "User " + user.getName() + " was updated");                
             }
 
             MultipartFormData<File> data = request().body().asMultipartFormData();
             
             FilePart<File> image = data.getFile("upload");
 
-            String saveImageMessage = saveFile(newEmployee.getId(), image);
-            flash("success", "Employee "+newEmployee.getName()+" was added/updated "+saveImageMessage);
+            String saveImageMessage = saveFile(user.getEmail(), image);
+            flash("success", "User "+user.getName()+" was added/updated "+saveImageMessage);
             return redirect(controllers.routes.HomeController.employee());
         }
     }
 
 
 
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
+    @Transactional
+    public Result addAdmin() {
+        Form<Admin> newUserForm = formFactory.form(Admin.class);
+        return ok(addAdmin.render(newUserForm,User.getUserById(session().get("email"))));
+    }
 
-    public String saveFile(Long id, FilePart<File> uploaded){
+    public Result addAdminSubmit() {
+        Form<Admin> newUserForm = formFactory.form(Admin.class).bindFromRequest();
+        
+
+        if (newUserForm.hasErrors()) {
+            return badRequest(addAdmin.render(newUserForm,User.getUserById(session().get("email"))));
+            
+        } 
+        else {
+            Admin user = newUserForm.get();
+            System.out.println("Name: "+newUserForm.field("name").getValue().get());
+            System.out.println("Role: "+newUserForm.field("role").getValue().get());
+            System.out.println("Email: "+newUserForm.field("email").getValue().get());
+            System.out.println("Password: "+newUserForm.field("password").getValue().get());
+
+            if (User.getUserById(user.getEmail()) == null) {
+                user.save();
+                flash("success", "User " + user.getName() + " was added");                
+            }else {
+                user.update();
+                flash("success", "User " + user.getName() + " was updated");                
+            }
+
+            MultipartFormData<File> data = request().body().asMultipartFormData();
+            
+            FilePart<File> image = data.getFile("upload");
+
+            String saveImageMessage = saveFile(user.getEmail(), image);
+            flash("success", "User "+user.getName()+" was added/updated "+saveImageMessage);
+            return redirect(controllers.routes.HomeController.admin());
+        }
+    }
+
+
+
+
+    //IMAGE
+
+    public String saveFile(String id, FilePart<File> uploaded){
         if(uploaded != null){
             String mimeType = uploaded.getContentType();
 
@@ -154,20 +214,20 @@ public class HomeController extends Controller {
                 }
 
                 File file = uploaded.getFile();
-                File dir = new File("public/images/employeeImages");
+                File dir = new File("public/images/userImages");
 
                 if(!dir.exists()){
                     dir.mkdirs();
                 }
 
-                File newFile = new File("public/images/employeeImages/", id + "."+extension);
+                File newFile = new File("public/images/userImages/", id + "."+extension);
                 if(file.renameTo(newFile)){
 
                     try{
                         BufferedImage img = ImageIO.read(newFile);
                         BufferedImage scaledImg = Scalr.resize(img, 90);
 
-                        if(ImageIO.write(scaledImg, extension, new File("public/images/employeeImages/", id + "thumb.jpg"))){
+                        if(ImageIO.write(scaledImg, extension, new File("public/images/userImages/", id + "thumb.jpg"))){
                             return "/ file uploaded and thumbnail created.";
                         }else{
                             return "/ file uploaded but thumbnail creation failed.";  
@@ -186,6 +246,11 @@ public class HomeController extends Controller {
         return "/ no image file.";
     }
 
+
+
+
+    //DELETE
+
     @Security.Authenticated(Secured.class)
     @With(AuthManager.class)
     @Transactional
@@ -202,14 +267,31 @@ public class HomeController extends Controller {
     @Security.Authenticated(Secured.class)
     @With(AuthAdmin.class)
     @Transactional
-    public Result deleteEmployee(Long id) {
-        Employee.find.ref(id).delete();
-        flash("success", "Employee has been deleted");
+    public Result deleteEmployee(String email) {
+        Employee u = (Employee)User.getUserById(email);
+        u.delete();
+        flash("success", "User has been deleted");
 
         return redirect(routes.HomeController.index(0));
     }
 
 
+
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
+    @Transactional
+    public Result deleteAdmin(String email) {
+        Admin u = (Admin)User.getUserById(email);
+        u.delete();
+        flash("success", "User has been deleted");
+
+        return redirect(routes.HomeController.index(0));
+    }
+
+
+
+
+    //UPDATE
 
     @Security.Authenticated(Secured.class)
     @With(AuthManager.class)
@@ -233,19 +315,42 @@ public class HomeController extends Controller {
     @Security.Authenticated(Secured.class)
     @With(AuthAdmin.class)
     @Transactional
-    public Result updateEmployee(Long id) {        
-        Employee e;
-        Form<Employee> employeeForm;
+    public Result updateEmployee(String email) {        
+        Employee u;
+        Form<Employee> userForm;
 
         try {
-            e = Employee.find.byId(id);
-            employeeForm = formFactory.form(Employee.class).fill(e);
+            u = (Employee)User.getUserById(email);
+            u.update();
+            userForm = formFactory.form(Employee.class).fill(u);
         }
         catch (Exception ex) {
             return badRequest("error");
         }
 
-        return ok(addEmployee.render(employeeForm,User.getUserById(session().get("email"))));
+        return ok(addEmployee.render(userForm,User.getUserById(session().get("email"))));
     }
+
+
+
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
+    @Transactional
+    public Result updateAdmin(String email) {        
+        Admin u;
+        Form<Admin> userForm;
+
+        try {
+            u = (Admin)User.getUserById(email);
+            u.update();
+            userForm = formFactory.form(Admin.class).fill(u);
+        }
+        catch (Exception ex) {
+            return badRequest("error");
+        }
+
+        return ok(addAdmin.render(userForm,User.getUserById(session().get("email"))));
+    }
+
 
 }

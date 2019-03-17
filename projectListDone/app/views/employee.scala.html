@@ -1,4 +1,4 @@
-@(employee: List[models.Employee], user: models.users.User, env: play.api.Environment)
+@(employee: List[models.users.Employee], user: models.users.User, env: play.api.Environment)
 
 @main("Employee",user) {
 
@@ -15,32 +15,34 @@
   <thead>
     <tr>
       <th>Image</th>
-      <th>ID</th>
       <th>Name</th>
+      <th>Role</th>
       <th>Email</th>
+      <th>Password</th>
       <th>Update</th>
-      <th>Delete</th>     
+      <th>Delete</th>    
     </tr>
   </thead>
 
   <tbody>
     @for(e<-employee) {
       <tr>
-        @if(env.resource("public/images/employeeImages/" + e.getId + "thumb.jpg").isDefined){
-          <td><img src="/assets/images/employeeImages/@(e.getId +"thumb.jpg")"/></td>
+        @if(env.resource("public/images/userImages/" + e.getEmail + "thumb.jpg").isDefined){
+          <td><img src="/assets/images/userImages/@(e.getEmail +"thumb.jpg")"/></td>
         }else{
-          <td><img src="/assets/images/employeeImages/noImage.png"></td>
+          <td><img src="/assets/images/userImages/noImage.png"></td>
         }
-        <td class="numeric">@e.getId</td>
         <td>@e.getName</td>
+        <td>@e.getRole</td>
         <td>@e.getEmail</td>
+        <td>@e.getPassword</td>
         <td>
-          <a href="@routes.HomeController.updateEmployee(e.getId)" class="button-xs btn-danger">
+          <a href="@routes.HomeController.updateEmployee(e.getEmail)" class="button-xs btn-danger">
             <span class="glyphicon glyphicon-pencil"></span>
           </a>
         </td>  
         <td>
-          <a href="@routes.HomeController.deleteEmployee(e.getId)" class="button-xs btn-danger"  onclick="return confirmDel()">
+          <a href="@routes.HomeController.deleteEmployee(e.getEmail)" class="button-xs btn-danger"  onclick="return confirmDel()">
             <span class="glyphicon glyphicon-trash"></span>
           </a>
         </td>

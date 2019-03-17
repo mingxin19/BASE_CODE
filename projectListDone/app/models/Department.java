@@ -7,6 +7,8 @@ import io.ebean.*;
 import play.data.format.*;
 import play.data.validation.*;
 
+import models.users.*;
+
 @Entity
 public class Department extends Model {
     @Id

@@ -22,16 +22,16 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object addEmployee extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[Form[models.Employee],models.users.User,play.twirl.api.HtmlFormat.Appendable] {
+object addEmployee extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[Form[models.users.Employee],models.users.User,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(employeeForm: Form[models.Employee],user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(userForm: Form[models.users.Employee],user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 /*2.2*/import helper._
 
 
-Seq[Any](format.raw/*1.63*/("""
+Seq[Any](format.raw/*1.65*/("""
 """),format.raw/*3.1*/("""
 """),_display_(/*4.2*/main("Add Employee",user)/*4.27*/ {_display_(Seq[Any](format.raw/*4.29*/("""
     """),format.raw/*5.5*/("""<p class="lead">Add a new employee</p>
@@ -39,16 +39,16 @@ Seq[Any](format.raw/*1.63*/("""
          'role -> "form", 'method -> "POST", 'enctype -> "multipart/form-data")/*7.80*/ {_display_(Seq[Any](format.raw/*7.82*/("""
         """),_display_(/*8.10*/CSRF/*8.14*/.formField),format.raw/*8.24*/("""
 
-        """),_display_(/*10.10*/inputText(employeeForm("name"), '_label -> "Name", 'class -> "form_control")),format.raw/*10.86*/("""
-        """),_display_(/*11.10*/inputText(employeeForm("email"), '_label -> "E-mail", 'class -> "form_control")),format.raw/*11.89*/("""
-        """),_display_(/*12.10*/inputText(employeeForm("password"), '_label -> "Password", 'class -> "form_control")),format.raw/*12.94*/("""
+        """),_display_(/*10.10*/inputText(userForm("name"), '_label -> "Name", 'class -> "form_control")),format.raw/*10.82*/("""
+        """),_display_(/*11.10*/inputText(userForm("email"), '_label -> "E-mail", 'class -> "form_control")),format.raw/*11.85*/("""
+        """),_display_(/*12.10*/inputText(userForm("password"), '_label -> "Password", 'class -> "form_control")),format.raw/*12.90*/("""
 
-        """),format.raw/*14.9*/("""<label>Image Upload</label>
+        """),_display_(/*14.10*/inputText(userForm("role").copy(value=Some("employee")), '_label -> "", 'hidden -> "hidden")),format.raw/*14.102*/("""
+
+        """),format.raw/*16.9*/("""<label>Image Upload</label>
         <input class="btn-sm btn-default" type="file" name="upload">
 
-        """),_display_(/*17.10*/inputText(employeeForm("id"), '_label -> "", 'hidden -> "hidden")),format.raw/*17.75*/("""
-
-        """),format.raw/*19.9*/("""<div class="actions">
+        <div class="actions">
             <input type="submit" value="Add/Update Employee" class="btn btn-primary">
             <a href=""""),_display_(/*21.23*/routes/*21.29*/.HomeController.employee),format.raw/*21.53*/("""">
                 <button type="button" class="btn btn-warning">Cancel</button>
@@ -60,9 +60,9 @@ Seq[Any](format.raw/*1.63*/("""
     }
   }
 
-  def render(employeeForm:Form[models.Employee],user:models.users.User): play.twirl.api.HtmlFormat.Appendable = apply(employeeForm,user)
+  def render(userForm:Form[models.users.Employee],user:models.users.User): play.twirl.api.HtmlFormat.Appendable = apply(userForm,user)
 
-  def f:((Form[models.Employee],models.users.User) => play.twirl.api.HtmlFormat.Appendable) = (employeeForm,user) => apply(employeeForm,user)
+  def f:((Form[models.users.Employee],models.users.User) => play.twirl.api.HtmlFormat.Appendable) = (userForm,user) => apply(userForm,user)
 
   def ref: this.type = this
 
@@ -71,11 +71,11 @@ Seq[Any](format.raw/*1.63*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Mar 17 13:39:45 GMT 2019
+                  DATE: Sun Mar 17 21:39:35 GMT 2019
                   SOURCE: /home/wdd/BASE_CODE/projectListDone/app/views/addEmployee.scala.html
-                  HASH: 77442ab3461851f8ebc713d955f9939950e24eef
-                  MATRIX: 987->1|1121->64|1166->62|1193->80|1220->82|1253->107|1292->109|1323->114|1392->158|1562->320|1601->322|1637->332|1649->336|1679->346|1717->357|1814->433|1851->443|1951->522|1988->532|2093->616|2130->626|2264->733|2350->798|2387->808|2544->938|2559->944|2604->968|2757->1090
-                  LINES: 28->1|31->2|34->1|35->3|36->4|36->4|36->4|37->5|38->6|39->7|39->7|40->8|40->8|40->8|42->10|42->10|43->11|43->11|44->12|44->12|46->14|49->17|49->17|51->19|53->21|53->21|53->21|57->25
+                  HASH: 7b4db13cce4dff7afbd78b45017f6e55b3a3f5d5
+                  MATRIX: 993->1|1129->66|1174->64|1201->82|1228->84|1261->109|1300->111|1331->116|1400->160|1570->322|1609->324|1645->334|1657->338|1687->348|1725->359|1818->431|1855->441|1951->516|1988->526|2089->606|2127->617|2241->709|2278->719|2541->955|2556->961|2601->985|2754->1107
+                  LINES: 28->1|31->2|34->1|35->3|36->4|36->4|36->4|37->5|38->6|39->7|39->7|40->8|40->8|40->8|42->10|42->10|43->11|43->11|44->12|44->12|46->14|46->14|48->16|53->21|53->21|53->21|57->25
                   -- GENERATED --
               */
           

@@ -3,18 +3,20 @@
 
 # --- !Ups
 
+create table address (
+  id                            bigint not null,
+  address1                      varchar(255),
+  address2                      varchar(255),
+  city                          varchar(255),
+  post_code                     varchar(255),
+  constraint pk_address primary key (id)
+);
+create sequence Address_seq increment by 1;
+
 create table department (
   id                            bigint auto_increment not null,
   name                          varchar(255),
   constraint pk_department primary key (id)
-);
-
-create table employee (
-  id                            bigint auto_increment not null,
-  name                          varchar(255),
-  email                         varchar(255),
-  password                      varchar(255),
-  constraint pk_employee primary key (id)
 );
 
 create table projects (
@@ -27,6 +29,7 @@ create table projects (
 );
 
 create table user (
+  type                          varchar(31) not null,
   email                         varchar(255) not null,
   role                          varchar(255),
   name                          varchar(255),
@@ -43,9 +46,10 @@ create index ix_projects_department_id on projects (department_id);
 alter table projects drop constraint if exists fk_projects_department_id;
 drop index if exists ix_projects_department_id;
 
-drop table if exists department;
+drop table if exists address;
+drop sequence if exists Address_seq;
 
-drop table if exists employee;
+drop table if exists department;
 
 drop table if exists projects;
 

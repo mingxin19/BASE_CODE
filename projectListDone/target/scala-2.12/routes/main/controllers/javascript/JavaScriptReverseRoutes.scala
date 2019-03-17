@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/BASE_CODE/projectListDone/conf/routes
-// @DATE:Sun Mar 17 13:39:44 GMT 2019
+// @DATE:Sun Mar 17 21:19:42 GMT 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -20,22 +20,12 @@ package controllers.javascript {
     }
 
   
-    // @LINE:9
+    // @LINE:12
     def addProjects: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addProjects",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "addProjects"})
-        }
-      """
-    )
-  
-    // @LINE:16
-    def updateEmployee: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.updateEmployee",
-      """
-        function(id0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "updateEmployee/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
         }
       """
     )
@@ -50,12 +40,32 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:12
+    // @LINE:9
+    def admin: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.admin",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "admin"})
+        }
+      """
+    )
+  
+    // @LINE:15
     def addEmployeeSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addEmployeeSubmit",
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addEmployeeSubmit"})
+        }
+      """
+    )
+  
+    // @LINE:21
+    def deleteEmployee: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.deleteEmployee",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "delEmployee/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
         }
       """
     )
@@ -70,22 +80,22 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:10
+    // @LINE:16
+    def addAdmin: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.addAdmin",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "addAdmin"})
+        }
+      """
+    )
+  
+    // @LINE:13
     def addProjectsSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addProjectsSubmit",
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addProjectsSubmit"})
-        }
-      """
-    )
-  
-    // @LINE:14
-    def deleteEmployee: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.deleteEmployee",
-      """
-        function(id0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "delEmployee/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
         }
       """
     )
@@ -100,7 +110,17 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:15
+    // @LINE:27
+    def updateAdmin: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.updateAdmin",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "updateAdmin/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:25
     def updateProjects: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.updateProjects",
       """
@@ -110,7 +130,17 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:13
+    // @LINE:22
+    def deleteAdmin: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.deleteAdmin",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "delAdmin/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:20
     def deleteProjects: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.deleteProjects",
       """
@@ -120,7 +150,17 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:11
+    // @LINE:26
+    def updateEmployee: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.updateEmployee",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "updateEmployee/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:14
     def addEmployee: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addEmployee",
       """
@@ -130,9 +170,19 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:17
+    def addAdminSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.addAdminSubmit",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "addAdminSubmit"})
+        }
+      """
+    )
+  
   }
 
-  // @LINE:18
+  // @LINE:29
   class ReverseLoginController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -140,7 +190,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:19
+    // @LINE:30
     def loginSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.LoginController.loginSubmit",
       """
@@ -150,7 +200,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:20
+    // @LINE:31
     def logout: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.LoginController.logout",
       """
@@ -160,7 +210,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:18
+    // @LINE:29
     def login: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.LoginController.login",
       """
@@ -172,7 +222,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:23
+  // @LINE:34
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -180,7 +230,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:23
+    // @LINE:34
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """

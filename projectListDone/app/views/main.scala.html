@@ -35,8 +35,12 @@
                 }
 
                 @if((user != null) && ("admin".equals(user.getRole()))){
+
+                    <li @if(title=="Admin" ){class="active"}>
+                        <a href="@routes.HomeController.admin()">Admin</a>
+                    </li>
                     <li @if(title=="Employee" ){class="active"}>
-                            <a href="@routes.HomeController.employee()">Admin</a>
+                            <a href="@routes.HomeController.employee()">Employee</a>
                     </li>
                 }
                 
