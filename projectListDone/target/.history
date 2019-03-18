@@ -275,3 +275,4 @@ run
 clean
 compile
 exit
+run

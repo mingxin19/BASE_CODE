@@ -35,8 +35,21 @@
                 }
 
                 @if((user != null) && ("admin".equals(user.getRole()))){
-
-                    <li @if(title=="Admin" ){class="active"}>
+                    <div class="dropdown">
+                        <button class="dropbtn">User</button>
+                        <div class="dropdown-content">
+                            <li @if(title=="Admin" ){class="active"}>
+                                <a href="@routes.HomeController.admin()">Admin</a>
+                            </li>
+                            <li @if(title=="Manager" ){class="active"}>
+                                <a href="@routes.HomeController.manager()">Manager</a>
+                            </li>
+                            <li @if(title=="Employee" ){class="active"}>
+                                    <a href="@routes.HomeController.employee()">Employee</a>
+                            </li>
+                        </div>
+                      </div>
+                    <!-- <li @if(title=="Admin" ){class="active"}>
                         <a href="@routes.HomeController.admin()">Admin</a>
                     </li>
                     <li @if(title=="Manager" ){class="active"}>
@@ -44,10 +57,10 @@
                     </li>
                     <li @if(title=="Employee" ){class="active"}>
                             <a href="@routes.HomeController.employee()">Employee</a>
-                    </li>
+                    </li> -->
                 }
                 
-
+                <div class="log">
                 <li @if(title=="Login"){class="active"}>
                     @if(user != null) {
                         <a href="@routes.LoginController.logout()">Logout @user.getName()</a>
@@ -56,6 +69,7 @@
                     }
 
                 </li>
+            </div>
             </ul>
 
         </div>
